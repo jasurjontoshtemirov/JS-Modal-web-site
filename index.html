@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal web site</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            background-image: url(dun.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+
+        .container {
+            height: 1000px;
+        }
+
+        header {
+            height: 100px;
+            background-color: rgba(122, 10, 90, 0.557);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navigation_item li {
+            display: inline-block;
+            padding-right: 30px;
+            font-size: 30px;
+        }
+
+        .navigation_item2 {
+            /* display: none; */
+            /* border: 4px solid red; */
+            height: 100vh;
+            max-width: 400px;
+            background-color: rgb(8, 5, 176);
+
+        }
+
+        .navigation_item2 {
+            display: none;
+            padding: 20px;
+        }
+
+        .navigation_item2 ul {
+            margin-top: 150px;
+        }
+
+        .navigation_item2 li {
+            display: inline-block;
+            padding-right: 30px;
+            font-size: 40px;
+
+        }
+
+        .add {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .add+p {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            font-size: 27px;
+        }
+
+        #btnx {
+            background: local;
+            border: none;
+        }
+
+        #btnx i {
+            font-size: 30px;
+            color: chocolate;
+        }
+
+        #navbar {
+            display: none;
+        }
+
+        @media screen and (max-width:809px) {
+            .active {
+                display: block;
+            }
+
+            .navigation_item li {
+                display: none;
+            }
+
+            #navbar i {
+                font-size: 40px;
+            }
+
+            #navbar {
+                display: block;
+                font-size: 30px;
+                padding: 30px;
+                border: none;
+                background: local;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- yaratilgan sana 31/12/2024 11:35 -->
+    <div class="container">
+        <header>
+            <div class="images">
+                <img src="MINI-Logo-PNG-Clipart-Background.png" width="200" alt="Mini-Logo">
+            </div>
+            <div class="navigation_item">
+                <ul>
+                    <li><i class="fa-brands fa-instagram" style="color: red;"></i></li>
+                    <li><i class="fa-brands fa-telegram" style="color: rgb(68, 68, 201);"></i></li>
+                    <li><i class="fa-brands fa-facebook" style="color: rgb(68, 68, 201);"></i></li>
+                </ul>
+            </div>
+            <button id="navbar"><i class="fa-solid fa-bars"></i></button>
+
+
+
+
+        </header>
+        <div class="navigation_item2">
+            <div class="add">
+                <h1>Welcome to world</h1>
+                <button id="btnx"><i class="fa-solid fa-square-xmark"></i></button>
+            </div>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis ea mollitia consequuntur voluptates,
+                officia sint dicta? Sint cupiditate sunt incidunt impedit fugiat dicta distinctio error, illum a
+                explicabo quo molestias quis deserunt vero velit modi ullam consequatur laudantium repellat asperiores!
+            </p>
+            <ul>
+                <li><i class="fa-brands fa-instagram" style="color: red;"></i></li>
+                <li><i class="fa-brands fa-telegram" style="color: rgb(37, 189, 227);"></i></li>
+                <li><i class="fa-brands fa-facebook" style="color: rgb(227, 255, 71);"></i></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const navbar = document.querySelector('#navbar');
+        const navigationItem2 = document.querySelector('.navigation_item2');
+        const btnx = document.querySelector('#btnx');
+
+        function toggleMenue(action) {
+            if (action == 'open') {
+                navigationItem2.classList.toggle('active')
+            } else {
+                navigationItem2.classList.remove('active')
+            }
+        }
+        navbar.addEventListener('click', () => toggleMenue('open'))
+        btnx.addEventListener('click', () => toggleMenue('close'))
+        document.addEventListener('keydown',(esc)=>{
+            if(esc.key==='Escape'){
+                navigationItem2.classList.remove('active')
+            }
+
+        })
+    </script>
+</body>
+
+</html>
